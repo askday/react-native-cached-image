@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'CachedImageExample' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+	'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+	'RCTText',
+	'RCTImage',
+	'RCTNetwork',
+	'RCTActionSheet',
+	'RCTLinkingIOS',
+	'ART',
+	'RCTAnimation',
+    'RCTWebSocket', # needed for debugging
+    # 'jschelpers',
+    'cxxreact',
+    'CxxBridge',
+  ]
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+  # Pods for CachedImageExample
+  pod "yoga", :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+end

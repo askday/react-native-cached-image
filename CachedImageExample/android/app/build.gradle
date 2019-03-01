@@ -89,14 +89,17 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def safeExtGet(prop, fallback) {
+    rootProject.hasProperty(prop) ? rootProject.getProperty(prop) : fallback
+}
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion safeExtGet("compileSdkVersion", 28)
+    buildToolsVersion safeExtGet("buildToolsVersion", "28.0.3")
 
     defaultConfig {
         applicationId "com.cachedimageexample"
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion safeExtGet("minSdkVersion", 16)
+        targetSdkVersion safeExtGet("targetSdkVersion", 27)
         versionCode 1
         versionName "1.0"
         ndk {
@@ -133,10 +136,9 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-fetch-blob')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':rn-fetch-blob')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.facebook.react:react-native:+"  // From node_modules
 }
 
 // Run this once to be able to run the application with BUCK

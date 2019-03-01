@@ -5,19 +5,20 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "dev": "yarn && rm -rf ./node_modules/react-native-cached-image; sane 'rsync -av --include='utils/' --include='utils/*.js' --include='*.js' --include='package.json' --exclude='*' ../ ./node_modules/react-native-cached-image' ../ --glob '**/*.js' --glob 'package.json'"
+    "init": "yarn install --no-optional -s --registry=https://registry.npm.taobao.org"
   },
   "dependencies": {
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.48.3",
-    "react-native-cached-image": "../"
+    "react": "16.6.3",
+    "react-native": "0.58.4",
+    "react-native-cached-image": "file:../"
   },
   "devDependencies": {
-    "babel-jest": "^21.0.2",
-    "babel-preset-react-native": "^3.0.2",
-    "jest": "^21.0.2",
-    "react-test-renderer": "^15.6.1",
-    "sane": "^2.0.0"
+    "@babel/core": "7.2.2",
+    "babel-jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.45.0",
+    "jest": "24.1.0",
+    "react-test-renderer": "16.6.3",
+    "sane": "4.0.2"
   },
   "jest": {
     "preset": "react-native"
